@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Travelling Bookwyrm</title>
+    <style>
+      body {
+        text-align: center;
+        background: linear-gradient(
+          334deg,
+          rgb(244, 241, 235) 0%,
+          rgb(139, 102, 241) 100%
+        );
+      }
+      img {
+        width: 100%;
+      }
+      button {
+        padding: 10px;
+        border-radius: 30px;
+        background-color: purple;
+        color: white;
+        margin: 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        transition: all 200ms ease-in-out;
+        cursor: pointer;
+        border: solid black 1px;
+      }
+      strong {
+        font-size: larger;
+        font-weight: bolder;
+        cursor: pointer;
+      }
+      .dark strong {
+        color: plum;
+      }
+      button:hover {
+        background-color: white;
+        color: purple;
+      }
+      p {
+        margin: 0px 0 px 30px 0px;
+        line-height: 168%;
+      }
+      span {
+        color: darkorchid;
+      }
+      .image-grid img {
+        border-radius: 10px;
+      }
+      .image-grid img:hover {
+        transform: scale(1.5);
+        transition: all 200ms ease-in-out;
+      }
+      .theme-button {
+        margin: 0px;
+        padding: 5px;
+      }
+      .book-image {
+        margin: 0 auto;
+        width: 300px;
+      }
+      .book-image:hover {
+        transform: scale(1.5);
+        transition: all 200ms ease-in-out;
+        opacity: 0.7;
+      }
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        width: 900px;
+        grid-gap: 15px;
+        margin: 10px auto;
+      }
+      .dark {
+        color: white;
+        background: linear-gradient(
+          334deg,
+          rgb(43, 9, 40) 0%,
+          rgb(118, 33, 162) 100%
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <button class="theme-button">Change Theme</button>
+    <div class="Heading">
+      <h1>The <span>Travelling</span> Bookwyrm</h1>
+      <h2>A site for book lovers by book lovers</h2>
+    </div>
+    <a
+      href="https://www.healthline.com/health/benefits-of-reading-books"
+      target="_blank"
+    >
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/104/145/original/file-ZUH0tGwQndYKTCMROc7veuoV_%281%29.png?1700099104"
+        class="book-image"
+      />
+    </a>
+    <p>
+      A love for <em>all</em> types of books from fantasy to sci-fi will bring
+      us together <br />to discuss our favorite books, characters and authors.
+      <br />Let's come together at the next renaissance faire!
+    </p>
+    <a href="https://www.therenlist.com/fairs" target="_blank">
+      <strong>Check out the nearest faire!</strong>
+    </a>
+    <div class="image-grid">
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/104/224/original/RenFair1.jpg?1700176135"
+      />
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/104/225/original/RenFair2.jpg?1700176142"
+      />
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/104/226/original/RenFair3.jpg?1700176148"
+      />
+    </div>
+    <br />
+    <button class="buy-merch-button">Buy Book Merch!</button>
+    <script>
+      function buyNow() {
+        let order = prompt("What would you like to order?");
+        let quantity = prompt("How many would you like to order?");
+        alert("Great! You have ordered " + quantity + " " + order + " books.");
+        let orderConfirmation = document.querySelector(".Heading");
+        if (quantity >= 3) {
+          orderConfirmation.innerHTML =
+            "Thank you for your order, because you ordered " +
+            quantity +
+            " books you get free shipping!";
+        } else {
+          orderConfirmation.innerHTML =
+            "Thank you for your order, shipping will be $10.";
+        }
+      }
+      let buyMerchButton = document.querySelector(".buy-merch-button");
+      buyMerchButton.addEventListener("click", buyNow);
+
+      function changeTheme() {
+        let body = document.querySelector("body");
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+        } else {
+          body.classList.add("dark");
+        }
+      }
+      let themeButton = document.querySelector(".theme-button");
+      themeButton.addEventListener("click", changeTheme);
+    </script>
+  </body>
+  <hr />
+  <footer>Page built by Astry Brana</footer>
+</html>
